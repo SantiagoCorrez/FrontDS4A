@@ -1,0 +1,41 @@
+<div class="container mt-5">
+    <div class="row pt-5">
+        <div class="col-md-3">
+            <mat-form-field appearance="outline">
+                <mat-label>Estacion</mat-label>
+                <mat-select (selectionChange)="parameters($event)" [(value)]="estacion">
+                    <mat-option [value]="caudal[1]" *ngFor="let caudal of data">{{caudal[2]}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="col-md-3">
+            <mat-form-field appearance="outline">
+                <mat-label>Parametro</mat-label>
+                <mat-select [(value)]="param" (selectionChange)="parameters($event)">
+                    <mat-option value="one">Precipitaciones</mat-option>
+                    <mat-option value="two">Evaporación</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="col-md-3">
+            <mat-form-field appearance="outline">
+                <mat-label>Fecha Inicio</mat-label>
+                <input matInput type="date" (change)="parameters($event.target)" [(ngModel)]="date1">
+            </mat-form-field>
+        </div>
+        <div class="col-md-3">
+            <mat-form-field appearance="outline">
+                <mat-label>Fecha Fin</mat-label>
+                <input matInput type="date" (change)="parameters($event.target)" [(ngModel)]="date2">
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="row pt-3">
+        <div class="col-md-6">
+            <div class="world-map" id="main"></div>
+        </div>
+        <div class="col-md-6">
+            <div class="world-map" id="line"></div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,53 @@
+<div class="container mt-5">
+    <div class="row pt-5">
+        <div class="col-md-6">
+            <mat-form-field appearance="outline">
+                <mat-label>Estacion</mat-label>
+                <mat-select (selectionChange)="parameters($event)" [(value)]="estacion">
+                    <mat-option [value]="caudal[1]" *ngFor="let caudal of data">{{caudal[2]}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field appearance="outline">
+                <mat-label>Parametro</mat-label>
+                <mat-select [(value)]="param" (selectionChange)="parameters($event)">
+                    <mat-option value="one">Precipitaciones</mat-option>
+                    <mat-option value="two">Evaporación</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="col-md-12">
+            <div id="a1990"></div>
+            <div id="a1991"></div>
+            <div id="a1992"></div>
+            <div id="a1993"></div>
+            <div id="a1994"></div>
+            <div id="a1995"></div>
+            <div id="a1996"></div>
+            <div id="a1997"></div>
+            <div id="a1998"></div>
+            <div id="a1999"></div>
+            <div id="a2000"></div>
+            <div id="a2001"></div>
+            <div id="a2002"></div>
+            <div id="a2003"></div>
+            <div id="a2004"></div>
+            <div id="a2005"></div>
+            <div id="a2006"></div>
+            <div id="a2007"></div>
+            <div id="a2008"></div>
+            <div id="a2009"></div>
+            <div id="a2010"></div>
+            <div id="a2011"></div>
+            <div id="a2012"></div>
+            <div id="a2013"></div>
+            <div id="a2014"></div>
+            <div id="a2015"></div>
+            <div id="a2016"></div>
+            <div id="a2017"></div>
+            <div id="a2018"></div>
+            <div id="a2019"></div>
+        </div>
+    </div>
+</div>
