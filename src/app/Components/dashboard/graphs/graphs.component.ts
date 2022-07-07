@@ -82,7 +82,7 @@ export class GraphsComponent implements OnInit {
     myChart.hideLoading()
   }
   lineChart(data: any,title:any) {
-    var myChart = echarts.init(document.getElementById('line')!);
+    var myChart = echarts.init(document.getElementById(title)!);
     // Draw the chart
 
     myChart.showLoading()
@@ -139,18 +139,16 @@ export class GraphsComponent implements OnInit {
     myChart.hideLoading()
   }
   parameters(event:any){
-    console.log(this.date1)
-    if(this.param=="one"){
-      let data = this.precipitacion.filter((ele:any)=>ele.Caudal==this.estacion)
+      let dataPre = this.precipitacion.filter((ele:any)=>ele.Caudal==this.estacion)
       if(this.date1!="" && this.date2!=""){
-        data=data.filter((ele:any)=>new Date(ele.DiaHora).getTime() >= new Date(this.date1).getTime() && new Date(ele.DiaHora).getTime() <= new Date(this.date2).getTime() )
+        dataPre=dataPre.filter((ele:any)=>new Date(ele.DiaHora).getTime() >= new Date(this.date1).getTime() && new Date(ele.DiaHora).getTime() <= new Date(this.date2).getTime() )
       }else if(this.date1!=""){
-        data=data.filter((ele:any)=>new Date(ele.DiaHora).getTime() >= new Date(this.date1).getTime() )
+        dataPre=dataPre.filter((ele:any)=>new Date(ele.DiaHora).getTime() >= new Date(this.date1).getTime() )
       }else if(this.date2!=""){
-        data=data.filter((ele:any)=>new Date(ele.DiaHora).getTime() <= new Date(this.date2).getTime() )
+        dataPre=dataPre.filter((ele:any)=>new Date(ele.DiaHora).getTime() <= new Date(this.date2).getTime() )
       }
-      this.lineChart(data.map((ele:any)=>[ele.DiaHora,ele.PRECIPITACION]),"Precipitacion")
-    }else{
+      this.lineChart(dataPre.map((ele:any)=>[ele.DiaHora,ele.PRECIPITACION]),"Precipitacion")
+    
       let data = this.evaporacion.filter((ele:any)=>ele.Caudal==this.estacion)
       if(this.date1!="" && this.date2!=""){
         data=data.filter((ele:any)=>new Date(ele.DiaHora).getTime() >= new Date(this.date1).getTime() && new Date(ele.DiaHora).getTime() <= new Date(this.date2).getTime() )
@@ -160,6 +158,5 @@ export class GraphsComponent implements OnInit {
         data=data.filter((ele:any)=>new Date(ele.DiaHora).getTime() <= new Date(this.date2).getTime() )
       }
       this.lineChart(data.map((ele:any)=>[ele.DiaHora,ele.EVAPORACION]),"Evaporacion")
-    }
   }
 }

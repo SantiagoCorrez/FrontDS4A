@@ -1,6 +1,6 @@
 <div class="container mt-5">
     <div class="row pt-5">
-        <div class="col-md-3">
+        <div class="col-md-4">
             <mat-form-field appearance="outline">
                 <mat-label>Estacion</mat-label>
                 <mat-select (selectionChange)="parameters($event)" [(value)]="estacion">
@@ -8,22 +8,13 @@
                 </mat-select>
             </mat-form-field>
         </div>
-        <div class="col-md-3">
-            <mat-form-field appearance="outline">
-                <mat-label>Parametro</mat-label>
-                <mat-select [(value)]="param" (selectionChange)="parameters($event)">
-                    <mat-option value="one">Precipitaciones</mat-option>
-                    <mat-option value="two">Evaporación</mat-option>
-                </mat-select>
-            </mat-form-field>
-        </div>
-        <div class="col-md-3">
+        <div class="col-md-4">
             <mat-form-field appearance="outline">
                 <mat-label>Fecha Inicio</mat-label>
                 <input matInput type="date" (change)="parameters($event.target)" [(ngModel)]="date1">
             </mat-form-field>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-4">
             <mat-form-field appearance="outline">
                 <mat-label>Fecha Fin</mat-label>
                 <input matInput type="date" (change)="parameters($event.target)" [(ngModel)]="date2">
@@ -35,7 +26,10 @@
             <div class="world-map" id="main"></div>
         </div>
         <div class="col-md-6">
-            <div class="world-map" id="line"></div>
+            <h3>Precipitacion</h3>
+            <div class="maps" id="Precipitacion"></div>
+            <h3>Evaporacion</h3>
+            <div class="maps" id="Evaporacion"></div>
         </div>
     </div>
 </div>
